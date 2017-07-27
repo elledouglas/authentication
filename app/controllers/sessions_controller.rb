@@ -13,12 +13,16 @@ class SessionsController < ApplicationController
       redirect_to_root_url
 
     else
-      flast.now[:alert] = ' Try again!'
+      flash.now[:alert] = ' Try again!'
       render :new
     end
   end
 
   def destroy
+
     session[:user_id] = nil
+
+flash[:notice] = "You're logged out"
+redirect_to_root_url
     end
 end
